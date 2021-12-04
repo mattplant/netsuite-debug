@@ -1,6 +1,6 @@
-# debug-netsuite README
+# netsuite-debug README
 
-This is the README for your extension "debug-netsuite". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "netsuite-debug". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
