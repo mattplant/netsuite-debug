@@ -2,7 +2,7 @@
   "name": "netsuite-debug",
   "displayName": "Debug NetSuite",
   "description": "Debug NetSuite for VS Code",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.62.0"
   },
@@ -21,8 +21,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "netsuite-debug.debugCode",
-        "title": "Debug Code"
+        "command": "netsuite-debug.createFile",
+        "title": "NetSuite Debug: Create File"
       }
     ]
   },

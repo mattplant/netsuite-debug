@@ -1,70 +1,35 @@
-# netsuite-debug README
+# NetSuite Debug
 
-This is the README for your extension "netsuite-debug". After writing up a brief description, we recommend including the following sections.
-
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+This VS Code extension allows you to quickly deploy a selection of code for debugging it while it is running on NetSuite servers.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+While not explicitly required, the assumption is that you are using.
+- **SuiteCloud SDK** installed and working with your NetSuite Instance - https://github.com/oracle/netsuite-suitecloud-sdk
+- **SuiteCloud Extension for Visual Studio Code** - https://marketplace.visualstudio.com/items?itemName=Oracle.suitecloud-vscode-extension
+
+If you have questions on setting up these tools I suggest you take a look at another project of mine called "**NetSuite TypeScript SDF Project Template**" at https://github.com/mattplant/netsuite-typescript-sdf.
+## Usage
+
+In VS Code, select the section of code that you want to debug and then have this extension create the Client Script file via Command Pallete, "NetSuite Debug: Create File".
+
+Then upload the file to NetSuite.  Since the generated file already has the focus, just press Shift+Alt+U to trigger "SuiteCloud: Upload File" to execute.
+
+Now in your browser with remote debugging enabled and with the inspector running visit the deployed object in NetSuite that has the above client script file deployed.  Code execection will stop just above your deployed code on the "debugger" line.
+- Google Chrome - `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222`
+- or Google Chrome Beta - `/Applications/Google\ Chrome\ Beta.app/Contents/MacOS/Google\ Chrome\ Beta --remote-debugging-port=9222`
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+Currently none.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+I currently have this working for debugging with a browser.  I plan to enable debugging thru VS Code.
+
+The code needs to be executed as a Client Script.  Therefore, you are not able to debug the complete code for specialized scripts (e.g. Portlets, Suitelets, Map/Reduce etc.).  All of the code from Scheduled Scripts can be executed, tho if you have any script parameters, you will need to set the variables for them correctly.  For Map/Reduce, you will only be able to debug one stage and will need to supplly appropriate values for input into that stage.
 
 ## Release Notes
+### 0.1.0
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Proof of concept.
